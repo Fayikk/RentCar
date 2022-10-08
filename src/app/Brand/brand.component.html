@@ -1,0 +1,24 @@
+
+<div *ngIf="dataloaded==false" class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<table *ngIf="dataloaded==true" class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Araba Markası</th>
+        </tr>
+    </thead>
+
+    <tr *ngFor="let brand of brands">
+        <td>
+            {{brand.brandId}}
+        </td>
+        <td>
+            {{brand.brandName}}
+        </td>
+    </tr>
+   
+</table>
+
