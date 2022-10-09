@@ -1,8 +1,14 @@
-
 <ul class="list-group">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-  </ul>
+  <li  [class]="getAllColorClass()"  routerLink="/Cars">Tüm Ürünler</li>
+  <li
+    (click)="setCurrentColor(color)"
+    routerLink="/Cars/color/{{color.colorId}}"
+    
+    *ngFor="let color of colors"
+    [class]="getCurrentColorClass(color)"
+  >
+    {{ color.colorName }}
+  </li>
+  
+</ul>
+<h2>{{ currentColor.colorName }} seçildi</h2>
