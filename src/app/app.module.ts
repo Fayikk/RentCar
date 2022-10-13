@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NaviComponent } from './navi/navi.component';
-import {HttpClientModule} from "@angular/common/http"//import ediyoruz
+import {HttpClientModule,HTTP_INTERCEPTORS} from "@angular/common/http"//import ediyoruz
 import { ColorComponent } from './Color/color.component';
 import { CarComponent } from './Car/car.component';
 import { BrandComponent } from './Brand/brand.component';
@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import {ToastrModule} from "ngx-toastr";
 import { ProductAddComponent } from './product-add/product-add.component';
+import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { ProductAddComponent } from './product-add/product-add.component';
     VatAddedPipe,
     FilterPipePipe,
     CartSummaryComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,9 @@ import { ProductAddComponent } from './product-add/product-add.component';
       positionClass:"toast-bottom-right"
     }),
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
