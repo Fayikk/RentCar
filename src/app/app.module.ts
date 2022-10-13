@@ -1,32 +1,47 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
 import { NaviComponent } from './navi/navi.component';
 import {HttpClientModule} from "@angular/common/http"//import ediyoruz
 import { ColorComponent } from './Color/color.component';
 import { CarComponent } from './Car/car.component';
 import { BrandComponent } from './Brand/brand.component';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FormsModule } from '@angular/forms'; 
+import { FilterPipePipe } from './pipes/filterpipe.pipe';
+// import { ToastrService } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr/public_api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
+import {ToastrModule} from "ngx-toastr";
+import { ProductAddComponent } from './product-add/product-add.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    // ColorComponent,
-    // CarComponent,
-    // BrandComponent,
     ColorComponent,
-    // NaviComponent
     CarComponent,
     BrandComponent,
-    NaviComponent
-
+    NaviComponent,
+    VatAddedPipe,
+    FilterPipePipe,
+    CartSummaryComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

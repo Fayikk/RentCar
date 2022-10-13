@@ -6,6 +6,15 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Adı Giriniz</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Aramak istediğinizi Giriniz">
+</div>
+
+<div *ngIf="filterText.length>2"    class="alert alert-alert">
+  {{filterText}} Ürünü
+</div>
+
 <table *ngIf="dataLoaded == true" class="table table-success table-striped">
   <thead>
     <tr>
@@ -14,12 +23,13 @@
       <th>RenkId</th>
       <th>Model Yılı</th>
       <th>Günlük Fiyat</th>
+      <th>Popülerite Fiyat</th>
       <th>Açıklama</th>
       <th>Marka</th>
     </tr>
   </thead>
 
-  <tr *ngFor="let car of cars">
+  <tr *ngFor="let car of cars | filterpipe:filterText  ">
     <td>
       {{ car.carId }}
     </td>
@@ -33,7 +43,10 @@
       {{ car.modelYear }}
     </td>
     <td>
-      {{ car.dailyPrice }}
+      {{ car.dailyPrice | currency}}
+    </td>
+    <td>
+      {{ car.dailyPrice | vatAdded:10 | currency}}
     </td>
     <td>
       {{ car.description }}
@@ -41,5 +54,9 @@
     <td>
       {{ car.carName }}
     </td>
+    <td>
+      <button (click)="addToCart(car)" type="button" class="btn btn-warning">Sepete Ekle</button>
+
+  </td>
   </tr>
 </table>
