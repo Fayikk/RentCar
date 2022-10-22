@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarComponent } from './Car/car.component';
 import { LoginGuard } from './guards/login.guard';
+import { ImageComponent } from './image/image.component';
 import { LoginComponent } from './login/login.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path:"Cars/color/:colorId",component:CarComponent},
   {path:"Cars/Added",component:ProductAddComponent,canActivate:[LoginGuard]},
   {path:"login",component:LoginComponent},
+  {path:"image",component:ImageComponent}
 
 ];
 

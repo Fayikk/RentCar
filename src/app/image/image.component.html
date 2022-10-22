@@ -1,0 +1,23 @@
+
+
+<table routerLink="/image" class="table">
+  <thead>
+    <tr>
+      <td>Ürün Resmi</td>
+      <td>Araba Id'si</td>
+      <td>Tarih</td>
+      <td>Id</td>
+    </tr>
+  </thead>
+  <tr
+    *ngFor="let image of images"
+  ><img [src]="imagee+image.imagePath">
+    <!-- <td>{{ image.carId }}</td>
+    <td>{{ image.date }}</td>
+    
+    <td>{{ image.Id }}</td> -->
+    <!-- {{image.imagePath}} -->
+      <!-- {{image.imagePath}} -->
+  </tr>
+</table>
+
