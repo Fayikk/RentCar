@@ -1,6 +1,7 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CarDetailDto } from '../models/cardetail';
 import { CarImage } from '../models/CarImage';
 import { ListResponseModel } from '../models/ListResponseModel';
 
@@ -15,4 +16,5 @@ export class ImageService {
   getImages():Observable<ListResponseModel<CarImage>> {
     return this.httpClient.get<ListResponseModel<CarImage>>(this.apiUrl);
   }
+
 }

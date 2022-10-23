@@ -1,0 +1,28 @@
+<table class="table table-success table-striped" routerLink="/detail">
+    <thead align="center">
+      <tr>
+        
+        <th>Yükleme Tarihi</th>
+        <th>Ürün Detayı</th>
+        <th align="center">Id</th>
+        <th>Ürün Resmi</th>
+       
+      </tr>
+    </thead>
+  
+    <tr *ngFor="let image of images " margin="10px" padding="10px">
+     
+            
+            <td>
+              {{ image.date }}
+            </td>
+         <td>
+      <button type="button" class="btn btn-info" routerLink="/Details/{{image.carId}}">Ürün Detayı</button>
+         </td><td>
+              {{ image.Id }}
+            </td>
+          
+      <img [src]="imagee+image.imagePath" width="280px" height="220px"  >
+    </tr>
+  </table>
+  

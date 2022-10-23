@@ -1,23 +1,38 @@
-
-
-<table routerLink="/image" class="table">
-  <thead>
+<!-- <table class="table table-success table-striped" routerLink="image">
+  <thead align="center">
     <tr>
-      <td>Ürün Resmi</td>
-      <td>Araba Id'si</td>
-      <td>Tarih</td>
-      <td>Id</td>
+      
+      <th>Yükleme Tarihi</th>
+      <th>Ürün Detayı</th>
+      <th align="center">Id</th>
+      <th>Ürün Resmi</th>
+     
     </tr>
   </thead>
-  <tr
-    *ngFor="let image of images"
-  ><img [src]="imagee+image.imagePath">
-    <!-- <td>{{ image.carId }}</td>
-    <td>{{ image.date }}</td>
-    
-    <td>{{ image.Id }}</td> -->
-    <!-- {{image.imagePath}} -->
-      <!-- {{image.imagePath}} -->
-  </tr>
-</table>
 
+  <tr *ngFor="let image of images ">
+   
+          
+          <td>
+            {{ image.date }}
+          </td>
+       
+    <button type="button" class="btn btn-info" >Ürün Detayı</button>
+
+
+        
+          <td>
+            {{ image.Id }}
+          </td>
+        
+    <img [src]="imagee+image.imagePath" width="280px" height="220px" >
+
+        
+      
+   
+ 
+   
+    
+   
+  </tr>
+</table> -->

@@ -20,8 +20,10 @@ import {ToastrModule} from "ngx-toastr";
 import { ProductAddComponent } from './product-add/product-add.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { CardetailComponent } from './cardetail/cardetail.component';
 import { ImageComponent } from './image/image.component';
+import { CarDetailComponent } from './car-detail/car-detail.component';
+import { DetailComponent } from './detail/detail.component';
+
 
 
 @NgModule({
@@ -36,8 +38,10 @@ import { ImageComponent } from './image/image.component';
     CartSummaryComponent,
     ProductAddComponent,
     LoginComponent,
-    CardetailComponent,
-    ImageComponent
+    ImageComponent,
+    CarDetailComponent,
+    DetailComponent,
+ 
   ],
   imports: [
     BrowserModule,

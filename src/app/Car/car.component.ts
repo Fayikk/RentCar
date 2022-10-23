@@ -11,7 +11,7 @@ import { CartService } from '../Services/cart.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-
+  
   cars : Car[]=[];
   dataLoaded=false;
   filterText="";
