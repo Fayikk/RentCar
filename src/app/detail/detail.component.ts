@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetailDto } from '../models/cardetail';
-import { CarImage } from '../models/CarImage';
 import { DetailService } from '../Services/detail.service';
 import { ImageService } from '../Services/image.service';
 
@@ -11,32 +10,34 @@ import { ImageService } from '../Services/image.service';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+  details:CarDetailDto[]=[]
+  carDetailDto:CarDetailDto
 
-  constructor(private detailService:DetailService,private activatedRoute:ActivatedRoute,
-    private imageService:ImageService) { }
-  detail:CarDetailDto[]=[]
-  Image:CarImage[]=[]
+
+  constructor(private detailService:DetailService,private activatedRoute:ActivatedRoute,private imageService:ImageService) { }
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      if(params["colorId"]){
-        this.getCarDetail(params["colorId"])
+      if(params["carId"]){
+        this.getCarByDetail(params["carId"])
       }else{
-        this.getImages()
+        this.getDetails()
       }
     })
   }
 
-   getImages(){
-    this.imageService
-    .getImages().
-    subscribe(response=>{this.Image=response.data});
+  getDetails(){
+    this.detailService
+    .getDetails().
+    subscribe(response=>{this.details=response.data});
   }
- getCarDetail(carId:number){
 
-    this.detailService.getCarDetail(carId)
-    .subscribe(response=>{this.detail=response.data;
+
+  getCarByDetail(carId:number){
+
+    this.detailService.getCarByDetail(carId)
+    .subscribe(response=>{this.carDetailDto=response.data;
    });
    
    }
-   
 }

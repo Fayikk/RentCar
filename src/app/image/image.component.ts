@@ -1,7 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarImage } from '../models/CarImage';
-import { CarService } from '../Services/car.service';
+import { CarImage } from '../models/image';
 import { ImageService } from '../Services/image.service';
 
 @Component({
@@ -10,29 +10,41 @@ import { ImageService } from '../Services/image.service';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
-  // images : CarImage[]=[];
-  
-  //https://localhost:44340/uploads/images/0724ebbb-bb59-4793-8416-136482681080.jpg
-  
-  
 
-  constructor(private ImageService:ImageService,private activatedRoute:ActivatedRoute,private carService:CarService) { }
+  images:CarImage[]=[]
+  currentImage : CarImage 
+  constructor(private imageService:ImageService,private activatedRoute:ActivatedRoute,private httpClient:HttpClient) { }
   imagee:string="https://localhost:44340/uploads/images/"
-
   ngOnInit(): void {
-    
+    this.getImages()
   }
-  // getImages(){
-  //   this.ImageService
-  //   .getImages().
-  //   subscribe(response=>{this.images=response.data});
-  // }
 
-  // getCarDetail(carId:number){
+  getImages(){
+    this.imageService.getImages()
+    .subscribe(Response=>{this.images=Response.data});
+  }
+  setCurrentİmage(image:CarImage){//değiştirilen det eedilen veriler için kullanılmaktadır.
+    this.currentImage = image;
+  }
 
-  //   this.carService.getCarsByColor(carId)
-  //   .subscribe(response=>{this.images=response.data;
-     
-  //  });
-  // }
+  getCurrentImageClass(image:CarImage){//get edilen veriler için kullanılmaktadır
+    if(image == this.currentImage){
+      return "list-group-item active"
+    }
+    else{
+      return "list-group-item"
+
+    }
+  }
+
+  getAllImageClass(){
+    if (!this.currentImage) {
+      return "list-group-item active"
+      
+    }else{
+      return "list-group-item"
+
+    }
+  }
+
 }

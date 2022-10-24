@@ -1,38 +1,22 @@
-<!-- <table class="table table-success table-striped" routerLink="image">
-  <thead align="center">
+<table class="table table-striped">
+  <thead>
     <tr>
-      
-      <th>Yükleme Tarihi</th>
-      <th>Ürün Detayı</th>
-      <th align="center">Id</th>
-      <th>Ürün Resmi</th>
-     
+      <th scope="col">Araba Id</th>
+      <th scope="col">Yükleme Tarihi</th>
+      <th scope="col">Ürün Detayı</th>
+      <th scope="col">Ürün Resmi</th>
     </tr>
   </thead>
-
-  <tr *ngFor="let image of images ">
-   
-          
-          <td>
-            {{ image.date }}
-          </td>
-       
-    <button type="button" class="btn btn-info" >Ürün Detayı</button>
-
-
-        
-          <td>
-            {{ image.Id }}
-          </td>
-        
-    <img [src]="imagee+image.imagePath" width="280px" height="220px" >
-
-        
+  <tbody>
+    <tr *ngFor="let image of images " margin="10px" padding="10px">
+      <th scope="row">{{image.carId}}</th>
       
+     <td>
+      {{ image.date }}</td>
+      <td>
+        <button type="button" class="btn btn-info" routerLink="/detail/{{image.carId}}">Araba Detayları</button>
+      </td>
+      <img [src]="imagee+image.imagePath" width="280px" height="220px"  >
    
- 
-   
-    
-   
-  </tr>
-</table> -->
+  </tbody>
+</table>

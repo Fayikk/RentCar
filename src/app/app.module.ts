@@ -21,7 +21,6 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ImageComponent } from './image/image.component';
-import { CarDetailComponent } from './car-detail/car-detail.component';
 import { DetailComponent } from './detail/detail.component';
 
 
@@ -39,9 +38,8 @@ import { DetailComponent } from './detail/detail.component';
     ProductAddComponent,
     LoginComponent,
     ImageComponent,
-    CarDetailComponent,
-    DetailComponent,
- 
+    DetailComponent
+
   ],
   imports: [
     BrowserModule,

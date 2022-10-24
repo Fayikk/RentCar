@@ -1,14 +1,13 @@
-
-
-<table routerLink="deneme" class="table">
-    <tr *ngFor="let deneme in detail">
-        <td>
-            {{deneme.carId}}
-        </td>
-        <td>
-            {{deneme.dailyPrice}}
-        </td>
-
-
-    </tr>
-</table>
+<div class="card">
+    <div class="card-header">
+        <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mike-b-170811.jpg&fm=jpg" style="width:100%;"/>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{carDetailDto.carName}}</li>
+            <li class="list-group-item">{{carDetailDto.brandName}}</li>
+            <li class="list-group-item">{{carDetailDto.colorName}}</li>
+            <li class="list-group-item">{{carDetailDto.dailyPrice}}</li>
+          </ul>
+    </div>
+</div>

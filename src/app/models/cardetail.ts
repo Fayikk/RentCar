@@ -1,4 +1,4 @@
-import { CarImage } from "./CarImage"
+// import { CarImage } from "./CarImage"
 
 export interface CarDetailDto{
     brandName:string
@@ -8,5 +8,5 @@ export interface CarDetailDto{
     dailyPrice:number
     carName:string
     colorName:string
-    carImage:CarImage[]
+    // carImage:CarImage[]
 }
